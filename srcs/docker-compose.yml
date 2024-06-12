@@ -106,8 +106,10 @@ services:
     volumes:
       - wordpress:/var/www/ccarnot
     ports:
-      - "20-21:20-21"
-      - "30000-30009:30000-30009"
+      - "0.0.0.0:21:21"
+      - "0.0.0.0:20:20"
+        #      - "20-21:20-21"
+      - "0.0.0.0:30000-30009:30000-30009"
     env_file:
       - .env
     restart: unless-stopped
