@@ -120,6 +120,18 @@ services:
       wordpress:
         condition: service_healthy
 
+  static_site:
+    build: ./requirements/bonus/static_site
+    container_name: static_site
+    image: static_site
+    ports:
+      - "81:81"
+    restart: unless-stopped
+    networks:
+      - inception
+        #    depends_on:
+        #      - nginx
+
 volumes:
   mariadb:
     driver: local

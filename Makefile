@@ -8,7 +8,7 @@ logs:
 	docker compose -f ./srcs/docker-compose.yml logs
 
 clean:
-	docker container stop nginx mariadb wordpress redis ftp
+	docker container stop nginx mariadb wordpress redis ftp static_site
 	docker network rm inception
 
 fclean: clean
