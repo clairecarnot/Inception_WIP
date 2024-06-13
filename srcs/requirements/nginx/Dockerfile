@@ -9,6 +9,7 @@ RUN mkdir -p /etc/nginx/ssl
 
 # generate self-signed certificate + key
 RUN openssl req -x509 -nodes -keyout /etc/nginx/ssl/inception.key -out /etc/nginx/ssl/inception.crt -subj "/C=FR/ST=IDF/L=Paris/O=42/OU=42/CN=ccarnot.42.fr/UID=ccarnot@student.42.fr"
+RUN openssl req -x509 -newkey rsa:4096 -keyout /etc/nginx/ssl/key.pem -out /etc/nginx/ssl/cert.pem -days 365 -nodes -subj '/CN=ccarnot.42.fr'
 
 # listen port (443 is default port for https traffic)
 EXPOSE 443

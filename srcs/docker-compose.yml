@@ -129,8 +129,35 @@ services:
     restart: unless-stopped
     networks:
       - inception
-        #    depends_on:
-        #      - nginx
+
+  adminer:
+    build: ./requirements/bonus/adminer
+    container_name: adminer
+    image: adminer
+    ports:
+      - "8080"
+    restart: unless-stopped
+    networks:
+      - inception
+    depends_on:
+      - mariadb
+
+  portainer:
+    build: ./requirements/bonus/portainer
+    container_name: portainer
+    image: portainer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer:/data
+    ports:
+      - "9000:9000"
+    restart: unless-stopped
+    init: true
+    networks:
+      - inception
+    environment:
+      - BASE_URL=/portainer
+    env_file: .env
 
 volumes:
   mariadb:
@@ -145,6 +172,12 @@ volumes:
       type: 'none'
       o: 'bind'
       device: '/home/ccarnot/data/wordpress'
+  portainer:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/home/ccarnot/data/portainer'
 
 networks:
   inception:

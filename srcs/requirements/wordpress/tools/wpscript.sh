@@ -15,7 +15,7 @@ else
 #	wp core download --allow-root --version=6.4 --path=/var/www/ccarnot/wordpress
 	wp core download --allow-root --path=/var/www/ccarnot/wordpress
 
-	sleep 20
+	sleep 10
 
 	cd /var/www/ccarnot/wordpress
 	
