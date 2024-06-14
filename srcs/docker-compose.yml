@@ -155,8 +155,6 @@ services:
     init: true
     networks:
       - inception
-        #    environment:
-        #      - BASE_URL=/portainer
     env_file: .env
 
 volumes:
