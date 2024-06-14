@@ -151,12 +151,12 @@ services:
       - portainer:/data
     ports:
       - "9000:9000"
-    restart: unless-stopped
+    restart: always
     init: true
     networks:
       - inception
-    environment:
-      - BASE_URL=/portainer
+        #    environment:
+        #      - BASE_URL=/portainer
     env_file: .env
 
 volumes:
