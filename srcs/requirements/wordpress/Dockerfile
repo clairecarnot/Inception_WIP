@@ -26,5 +26,3 @@ RUN chown -R www-data:www-data /var/www/* \
 	&& chmod -R 755 /var/www/*
 
 ENTRYPOINT ["sh", "/wpscript.sh"]
-
-#CMD ["/usr/sbin/php-fpm7.4", "-F"]

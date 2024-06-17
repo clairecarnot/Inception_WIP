@@ -8,9 +8,6 @@ EXPOSE 20-21
 
 COPY conf/vsftpd.conf /etc/vsftpd.conf
 
-#RUN mkdir -p /var/www/html \
-#	&& chmod 755 /var/www/html
-
 RUN mkdir -p /var/www/ccarnot \
 	&& chmod 755 /var/www/ccarnot
 

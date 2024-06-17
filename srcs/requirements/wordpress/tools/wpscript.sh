@@ -12,7 +12,6 @@ else
 	chmod +x wp-cli.phar
 	mv wp-cli.phar /usr/local/bin/wp
 
-#	wp core download --allow-root --version=6.4 --path=/var/www/ccarnot/wordpress
 	wp core download --allow-root --path=/var/www/ccarnot/wordpress
 
 	sleep 10
@@ -52,4 +51,3 @@ else
 fi
 
 exec /usr/sbin/php-fpm7.4 -F
-#exec "$@"

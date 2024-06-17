@@ -10,12 +10,6 @@ RUN wget https://github.com/portainer/portainer/releases/download/2.19.5/portain
 
 RUN chmod +x /usr/local/bin/portainer/portainer
 
-#RUN mkdir -p /data
-
 EXPOSE 9000
-
-#COPY tools/portainer.sh /portainer.sh
-#RUN chmod +x /portainer.sh
-#ENTRYPOINT ["/portainer.sh"]
 
 CMD ["/usr/local/bin/portainer/portainer"]

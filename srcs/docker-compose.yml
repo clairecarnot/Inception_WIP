@@ -44,7 +44,6 @@ services:
     restart: always
     healthcheck:
       test: netstat -an | grep 9000 > /dev/null; if [ 0 != $$? ]; then exit 1; fi;
-        #      test: ["CMD-SHELL", "[ -f /var/www/ccarnot/wordpress/wp-config.php ] || exit 1"]
       interval: 5s
       timeout: 1s
       retries: 20
@@ -82,14 +81,8 @@ services:
       dockerfile: Dockerfile
     networks:
       - inception
-        #    depends_on:
-        #      - nginx
-      #      wordpress:
-      #        condition: service_healthy
     ports:
       - "6379:6379"
-        #    volumes:
-        #      - wordpress:/var/www/ccarnot
     env_file: .env
     restart: always
     healthcheck:
@@ -108,7 +101,6 @@ services:
     ports:
       - "0.0.0.0:21:21"
       - "0.0.0.0:20:20"
-        #      - "20-21:20-21"
       - "0.0.0.0:30000-30009:30000-30009"
     env_file:
       - .env
